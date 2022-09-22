@@ -16,8 +16,8 @@ export default function App() {
     },
     {
       question:
-        'Como o servidor sabe qual o mime-type do payload de uma requisição?',
-      answer: 'application/json',
+        'Como o servidor sabe que deve receber e enviar o paylod em JSON?',
+      answer: 'Através do mime-type application/json',
     },
     {
       question:
