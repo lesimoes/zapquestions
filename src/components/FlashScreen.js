@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Question from "./Question";
-import Footer from "./Footer";
-import logo from "../assets/img/logo.png";
+import React, { useState } from 'react';
+import Question from './Question';
+import Footer from './Footer';
+import logo from '../assets/img/logo.png';
 
-export default function FlashScreen({deckState}) {
+export default function FlashScreen({ deckState }) {
   const [answerZap, setAnswerZap] = useState([]);
-  
+
   function mix() {
     if (answerZap.length === 0) {
       return 0.5 - Math.random();
@@ -17,11 +17,9 @@ export default function FlashScreen({deckState}) {
         <img src={logo} alt="ZapRecall logo" />
         <h1>ZapRecall</h1>
       </header>
-      <section className="questions">
-        {deckState
-          .sort(mix)
-          .slice(4)
-          .map((question, index) => (
+      <section className="main">
+        <section className="questions">
+          {deckState.sort(mix).map((question, index) => (
             <Question
               key={index}
               questionNumber={index}
@@ -31,7 +29,9 @@ export default function FlashScreen({deckState}) {
               answerZap={answerZap}
             />
           ))}
+        </section>
       </section>
+
       <Footer answerZap={answerZap} answerNumber={answerZap.length} />
     </section>
   );
